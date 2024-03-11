@@ -1,5 +1,12 @@
 [
   {
+    "version": "kr-2.0",
+    "title": "kr-2.0",
+    "aliases": [
+      "latest"
+    ]
+  },
+  {
     "version": "kr-1.0",
     "title": "kr-1.0",
     "aliases": []
