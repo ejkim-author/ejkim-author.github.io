@@ -12,5 +12,12 @@
     "aliases": [
       "stable"
     ]
+  },
+  {
+    "version": "en-1.0",
+    "title": "en-1.0",
+    "aliases": [
+      "en-stable"
+    ]
   }
 ]
