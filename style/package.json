@@ -1,0 +1,23 @@
+{
+  "name": "mkdocs-material-theme-stylesheets",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.4.17",
+    "material-design-color": "^2.3.2",
+    "material-shadows": "^3.0.1",
+    "postcss": "^8.4.35",
+    "postcss-dir-pseudo-class": "^8.0.1",
+    "postcss-inline-svg": "^6.0.0",
+    "postcss-logical": "^7.0.1",
+    "postcss-pseudo-is": "^0.3.0",
+    "sass": "^1.71.1"
+  },
+  "description": ""
+}
