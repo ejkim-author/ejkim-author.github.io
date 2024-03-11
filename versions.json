@@ -2,6 +2,11 @@
   {
     "version": "kr-1.0",
     "title": "kr-1.0",
+    "aliases": []
+  },
+  {
+    "version": "0.0",
+    "title": "0.0",
     "aliases": [
       "stable"
     ]
