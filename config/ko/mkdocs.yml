@@ -1,0 +1,156 @@
+site_name: Hive Developers SDK 가이드
+site_url: https://ejkim-author.github.io/stable/
+docs_dir: '../../docs/ko'
+site_dir: '../../site/ko'
+
+theme: 
+  name: material
+  language: ko
+  custom_dir : ../../template  
+  font:
+    text: sans-serif
+    code: Roboto Mono
+  features:
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    # - navigation.instant
+    # - navigation.prune
+    - navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
+
+
+# Plugins
+plugins:
+  - search:
+      lang: ko
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - minify:
+      minify_html: true
+
+extra:
+  version:
+    default:
+      - stable
+    provider: mike
+
+  alternate:
+    - name: Korean
+      link: /stable/
+      lang: ko
+
+    - name: English
+      link: /en-stable/
+      lang: en
+ 
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - tables
+
+
+
+nav:
+  - Home: index.md
+  - SDK Guide:
+    - 인증:
+      - 로그인 로그아웃: dev/auth/login-helper.md
+    - 프로모션:
+      - 대배너: dev/promotion/fullbanners.md
+  #   - FAQ: guide/faq.md
+  #   - API Reference: guide/api-reference.md
+  #   - Release Notes: guide/release-notes.md
+  # - Tutorial:
+  #   - Tutorial: tutorial/tutorial.md
+  #   - Tutorial2: tutorial/tutorial2.md
+  # - About:
+  #   - About: about/about.md
+  #   - About2: about/about2.md
+
+# 바닐라 mkdocs 알아야할 정보들 정리 
+# nav:
+  # Note that a section cannot have a page assigned to it. Sections are only containers for child pages and sub-sections.
+  # 가장 말단 경로(leaf node)만 링크를 걸 수 있음. 줄기 경로(branch node)는 링크를 걸 수 없으며, 섹션 이름만 표시됨.
+  # 모든 페이지를 nav로 등록하는 것을 강력히 권장함.
+
+# index.md가 홈페이지(랜딩페이지)가 됨.
+
+# 문서 내 링크 사용 시 항상 상대 링크만 사용할 것. 절대 링크 사용 시 로컬에서는 정상이더라도, 배포 시 문제가 생길 수 있음.
+  # 확장 마크다운 문법에서 toc extensions을 사용해야 네임드 앵커를 사용 가능. https://python-markdown.github.io/extensions/toc/
+
+# toc extensions으로 permalink 사용 가능: https://www.mkdocs.org/user-guide/writing-your-docs/#linking-to-pages
+
+# 바닐라 마크다운 문법을 먼저 알고, 그 다음에 파이선 마크다운 문법을 배워야함. 더 나아가, 확장 마크다운 문법도 지원함. 단, 큰 차이는 없음.
+# 마크다운 문법: https://www.markdownguide.org/basic-syntax/
+# 파이선 마크다운 문법: https://python-markdown.github.io/#differences
+# 확장 마크다운 문법: https://www.mkdocs.org/user-guide/configuration/#markdown_extensions
+
+# MkDocs는 HTML 포맷도 지원하긴 한다. 다만, MkDocs는 raw HTML에 포함된 링크를 확인하거나 변환할 수 없습니다. raw HTML 내에 내부 링크를 포함하는 경우 렌더링한 문서(빌드한 HTML 문서)에 맞게 링크 형식을 수동으로 지정해야 합니다.
+
+# https://www.mkdocs.org/user-guide/writing-your-docs/#meta-data 전까지 읽었음.
+
+# mkdocs가 title 결정하는 우선 순위: nav가 1순위임
+# A title defined in the nav configuration setting for a document.
+# A title defined in the title meta-data key of a document.
+# A level 1 Markdown header on the first line of the document body.
+# (Setext-style headers are supported only since MkDocs 1.5.)
+# The filename of a document.
+
+# The first blank line ends all meta-data for the document. Therefore, the first line of a document must not be blank.
+# MultiMarkdownStyle 메타 데이터를 쓰려면 빈 공백을 조심해야 함. 빈 공백 라인이 있으면, 그 다음 라인부터는 메타 데이터로 인식하지 않음.
+
+# 바닐라 mkdocs 알아야할 정보들 정리  ------------------------------ 끝
