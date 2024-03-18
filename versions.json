@@ -3,5 +3,10 @@
     "version": "kr-1.0",
     "title": "kr-1.0",
     "aliases": []
+  },
+  {
+    "version": "en-1.0",
+    "title": "en-1.0",
+    "aliases": []
   }
 ]
