@@ -1,5 +1,5 @@
 site_name: Hive Developers SDK Guide
-site_url: https://ejkim-author.github.io/en-stable/
+site_url: https://ejkim-author.github.io/
 docs_dir: '../../docs/en'
 site_dir: '../../site/en'
 
@@ -47,16 +47,16 @@ plugins:
 extra:
   version:
     default:
-      - 'en-stable'
+      - 'kr-1.0'
     provider: mike
 
   alternate:
     - name: Korean
-      link: /stable/ 
+      link: /kr-1.0/
       lang: ko
 
     - name: English
-      link: /en-stable/
+      link: /en-1.0/
       lang: en
  
 # Extensions
@@ -105,11 +105,17 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+
   - SDK Guide:
+    - dev/index.md
+
+    - About Hive: dev/about-hive.html
+
     - authentication:
-      - Log-in Log-out: dev/auth/login-helper.md
-    - 프로모션:
-      - 대배너: dev/promotion/fullbanners.md
+      - dev/auth/index.md
+      - Login Logout: dev/auth/login-helper.md
+    - Promotion:
+      - Fullbanners: dev/promotion/fullbanners.md
   #   - FAQ: guide/faq.md
   #   - API Reference: guide/api-reference.md
   #   - Release Notes: guide/release-notes.md

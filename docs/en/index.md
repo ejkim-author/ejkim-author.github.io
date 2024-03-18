@@ -4,7 +4,11 @@ hide:
   - navigation
 ---
 
-# Welcome to MkDocs Test English for en-2.0 (en-latest)
+# Welcome to MkDocs Test English version
+
+영문 버전이 아래와 같이 업데이트 되었습니다.
+
+- [en-2.0](dev/index.md)
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 

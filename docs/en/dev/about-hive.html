@@ -1,0 +1,380 @@
+{% extends "base.html" %}
+
+
+<h2>Mobile Game Platform 2.0</h2>
+
+Hive is a platform that provides various functions required to serve mobile games to global users. With Hive, you can shorten the time to develop mobile games, effectively increase game users, and encourage user participation. This mobile game platform is currently available not only with the games published by Com2uS and Com2uS Holdings, but also with various types of games from other companies.
+
+To service mobile games using Hive, it is necessary to integrate Hive SDK into game clients.
+Hive SDK supports iOS and Android-based platforms, and provides three plug-ins for language support such as C++ and Objective-C, and for game engine support such as Unity, Unreal Engine, and Cocos2d-x.
+
+Hive logo in games uses the image provided by Platform Department, and is marked with the capital <strong>H</strong> when using text. To download the logo image, check the <a href="https://com2us.com/include/platform/img/Hive_BI.zip">Hive Brand Guide</a> at the bottom of the Com2uS Platform homepage.
+
+<a href="https://developers.withhive.com/wp-content/uploads/2020/12/text_hive.png"><img src="https://developers.withhive.com/wp-content/uploads/2020/12/text_hive.png" /></a>
+
+&nbsp;
+
+<hr />
+
+<h2>Provisioning</h2>
+
+Hive Provisioning manages a process from Hive SDK initialization to server maintenance popup.
+
+<h4>Terms of Service</h4>
+
+The game should display or get agreement on Terms and Privacy Policy to all users to protect the user’s right and comply with the rules. If the following circumstances are occurred at the time of initialization, Hive platform distinguishes the country of each user and exposes the agreement on Terms and Policy to users depending on the setting condition on Hive Console.
+
+<ul>
+    <li style="list-style-type: none;">
+<ul>
+    <li>When user starts a game for the first time.</li>
+    <li>When the revision (version change) of the terms is required.</li>
+</ul>
+</li>
+</ul>
+
+In Hive Console, you can register the Terms of Service and set to display the agreement popup on Terms from users in ten countries; Korea, the United States, Japan, China, Taiwan, Hong Kong, Macao, Russia, France, and Germany. Even the agreement popup on Terms is not exposed when user executes the game, you should implement the Terms of Service feature at a proper location in the game.
+
+<ul>
+    <li>An example screen of agreement on Terms at the beginning of the game
+<a href="https://developers.withhive.com/wp-content/uploads/2020/12/agreement_on_terms_ex_en.png"><img src="https://developers.withhive.com/wp-content/uploads/2020/12/agreement_on_terms_ex_en.png" alt="" width="450" /></a></li>
+    <li>An example screen of Terms of Service
+<a href="http://developers.withhive.com/wp-content/uploads/2020/01/terms_of_service_en_200109.png"><img class="alignnone size-full wp-image-17277" src="http://developers.withhive.com/wp-content/uploads/2020/01/terms_of_service_en_200109.png" alt="" width="450" /></a></li>
+</ul>
+
+<blockquote>
+  According to Article 50 (Restrictions on Transmission of Advertising Information for Profit) of Act on Promotion of Information and Communication Network Utilization and information Protection, you should get agreement prior to send the commercial information by push service to Korean users.
+  If user opted in to Night-time Notification, you can expose commercial information at night. For this, Hive supports the feature to get agreement on receiving commercial information in daytime and at night from users.
+</blockquote>
+
+&nbsp;
+
+<blockquote>
+  Push notifications sent from Hive Console are blocked if users opt out of commercial information. That is, the pushes by Hive Push API from game server as well as Local Push are regarded as non-commercial information.
+</blockquote>
+
+&nbsp;
+
+<h4>Update/Server Maintenance/Notice Popups</h4>
+
+For the game service, it is necessary to block the version after the update of the game client, or to block the game connection during the maintenance of the game server. Hive provides the functions to expose popups in the order of <strong>Forced game update, notification/server maintenance</strong> in accordance with the information configured in Hive Console. In the game, you can use the UI provided by Hive SDK or implement the customized UI by receiving the information from Hive.
+
+<table class="custom-basic">
+<tbody>
+<tr>
+<td style="width: 30%;"><strong>Game Update by Force</strong></td>
+<td style="width: 70%;">Block to use the specific version of games and provide a link for update</td>
+</tr>
+<tr>
+<td><strong>Server Maintenance</strong></td>
+<td>Available to set the maintenance status by game server, and recommended to provide official community links by game during the server maintenance</td>
+</tr>
+<tr>
+<td><strong>Notice</strong></td>
+<td>Use to expose the important notice or update information not by force to all users</td>
+</tr>
+</tbody>
+</table>
+
+<aside class="note">
+<p class="">Update/Maintenance popup is a part of initialization step. Server maintenance popup should be also exposed in the step of server selection, regardless of automatic or manual selection, so make sure to implement the maintenance popup to be displayed requisitely.</p>
+
+</aside>
+
+&nbsp;
+
+<hr />
+
+<h2>Authentication v4</h2>
+
+Hive Authentication v4 is a new authentication system of Hive platform and has advantages as follows:
+
+<ul>
+    <li>Flexible response to external authentication method such as <strong>Apple Game Center, Google Play Games and Facebook</strong>
+<ul>
+    <li>It offers login service via other social media, such as Facebook and WeChat.</li>
+    <li>It supports implicit login of the account of Apple Game Center or Google Play Games without selecting IdP by a user.</li>
+</ul>
+</li>
+    <li><strong>Support customization of interfaces for authentication and login procedures</strong>
+<ul>
+    <li>In accordance with the game concept, you can design the authentication and configuration menus provided using the API, provided with Hive SDK UI.</li>
+</ul>
+</li>
+    <li><strong>Support stable login via distributed server</strong>
+<ul>
+    <li>It supports user authentication and automatic login in various situations by using AWS distributed servers.</li>
+</ul>
+</li>
+</ul>
+
+<h4>Login through IdP Authentication</h4>
+
+Hive authentication v4 is available to authenticate by IdP. User can select one of IdP provided to connect with Hive. The IdP provided can be set in diverse ways depending on games, and Hive platform exposes the appropriate IdPs to users based on the country where user connects from.
+
+<ul>
+    <li>IdP selection UI provided by SDK
+<a href="https://developers.withhive.com/wp-content/uploads/2021/03/idp_list_en.png"><img src="https://developers.withhive.com/wp-content/uploads/2021/03/idp_list_en.png" alt="" width="450" /></a></li>
+</ul>
+
+<h4>Automatic Login</h4>
+
+Authentication returns a token key based on login authentication for all users, regardless of IdP type. If this key exists, execute Automatic Login.
+
+<h4>Implicit Login</h4>
+
+Implicit Login is a method that the user does not select a means of login, but logs in the Apple Game Center account on iOS or the Google Play Games account on Android automatically. Implement the Implicit Login to be executed after failure of Automatic Login.
+
+<ul>
+    <li>Login flow of Implicit Login
+<a href="http://developers.withhive.com/wp-content/uploads/2019/04/implicit_flow_en.png"><img src="http://developers.withhive.com/wp-content/uploads/2019/04/implicit_flow_en.png" alt="" width="700" /></a></li>
+</ul>
+
+<h4>Explicit Login</h4>
+
+When initialization is completed, game will be logged in with the UI (provided by SDK or self-implementation) available to select IdP to be used for authentication. When user selects one of the IdP provided, it will proceed the authentication. Even selecting a guest, user can start the game as a guest.
+
+<ul>
+    <li>Login flow of Explicit Login
+<a href="https://developers.withhive.com/wp-content/uploads/2020/12/explicit_flow_en.png"><img src="https://developers.withhive.com/wp-content/uploads/2020/12/explicit_flow_en.png" alt="" width="700" /></a></li>
+</ul>
+
+<h4>Guest Login</h4>
+
+Hive supports Guest Login to allow users to use the game as a guest without selecting an IdP. Most features of Hive platform are available for guest users. So, implement the game functions including payment the same for both guest users and IdP-connected users.
+
+<aside class="note">
+<p class="">If users access the game with Chinese IP, only authorized members can charge game cash or purchase items (started from May 1, 2017). Therefore, IdP lists available with Chinese IP do not include Guest Login.</p>
+
+</aside>
+
+&nbsp;
+
+<hr />
+
+<h2>Profile</h2>
+
+Users can express their personality through profile images and ID. In the profile menu, users can view or modify their information, and change the connection status with social media. Hive collects user information as follows:
+
+<ul>
+    <li>Profile image, ID, Nickname</li>
+    <li>Social media connected with Hive account</li>
+</ul>
+
+<h4>Authentication v4 Profile</h4>
+
+Every user has a profile page, and they can edit their profile image and nickname on the profile page. Only Hive membership users are available to edit the profile. If users connect with IdPs such as Facebook, which returns the profile image or nickname, user data from the IdP will be used on Hive.
+[su_row]
+[su_column size="1/2"]
+<ul>
+ 	<li>Hive membership-connected profile
+<a href="http://image-glb.qpyou.cn/markup/event/hivedev/authv4_profile_membership.PNG"><img src="https://developers.withhive.com/wp-content/uploads/2021/03/authv4_profile_membership_en.png" alt="" width="300" /></a></li>
+</ul>
+[/su_column]
+[su_column size="1/2"]
+<ul>
+ 	<li>Guest or other IdP-connected profile
+<a href="https://developers.withhive.com/wp-content/uploads/2020/12/authv4_profile_none.png"><img src="https://developers.withhive.com/wp-content/uploads/2021/03/authv4_profile_none_en.png" alt="" width="300" /></a></li>
+</ul>
+[/su_column]
+[/su_row]
+
+&nbsp;
+
+<hr />
+
+<h2>Promotion</h2>
+
+&nbsp;
+
+<h4>Full Banner</h4>
+
+Hive provides the features of event display effectively to game users. Full banner is available to increase the participation of game users, or to advertise other games with rewards through cross promotion.
+If a user taps a banner, it goes to the description page, the external page, or the download page after advertising other games depending on the registered content on Hive Console.
+
+<a href="https://developers.withhive.com/wp-content/uploads/2020/11/promotion_fullbanner_en.png"><img src="https://developers.withhive.com/wp-content/uploads/2020/11/promotion_fullbanner_en.png" alt="" width="450" /></a>
+
+<h4>News</h4>
+
+It displays a news popup, one of the features in Hive Promotion. Event banners and notices of games registered in Hive Console are exposed. Opening an individual event registered in Hive Promotion directly in the game is also provided.
+
+<a href="https://developers.withhive.com/wp-content/uploads/2020/11/displaying_news_page_en-1.png"><img src="https://developers.withhive.com/wp-content/uploads/2021/05/displaying_news_page_en.png" alt="" width="450" /></a>
+
+<h4>Offerwall</h4>
+
+Offerwall recommends playing new Hive games through advertising network among the games on Hive to Hive users, so Hive provides the game lists available to download on the offerwall. Offerwall with rewards describes the rewards after installation of new game. If a user installs and plays the game, Hive send the rewards to the user. Offerwall service is available on Android-base device only due to the policy of market business.
+
+<a href="https://developers.withhive.com/wp-content/uploads/2020/11/promotion_offerwall_en-1.png"><img src="https://developers.withhive.com/wp-content/uploads/2021/05/promotion_offerwall_en.png" alt="" width="450" /></a>
+
+<h4>Custom Board/Custom View</h4>
+
+Hive provides board-typed postings such as in-game notices or external contents in WebView format. Hive game users are able to use the internal or external content related to the game on the custom board or custom view while executing the game.
+
+<a href="https://developers.withhive.com/wp-content/uploads/2020/12/promotion_customview_en.png"><img src="https://developers.withhive.com/wp-content/uploads/2020/12/promotion_customview_en.png" alt="" width="700" /></a>
+
+<h4>Review Popup</h4>
+
+Positive ratings and reviews by game users affect the game usage of other players. If you display the suggestion popup, user participation increases by five to ten times.
+You can use the features provided by Hive, or implement the feature directly in the game and link to the market URL. See the following guidelines to expose popups for ratings and reviews at an appropriate time.
+
+<ul>
+    <li style="list-style-type: none;">
+<ul>
+    <li>Expose the suggestion popups within five minutes after game starts.</li>
+    <li>Expose when giving positive feedback to the user, such as stage clearance, rewards, etc.</li>
+    <li>Expose repeatedly for a fixed number of times and be aware of user resistance.</li>
+</ul>
+</li>
+</ul>
+
+<a href="http://developers.withhive.com/wp-content/uploads/2019/10/reviewpopup_191029_en.png"><img class="alignnone wp-image-18603" src="http://developers.withhive.com/wp-content/uploads/2019/10/reviewpopup_191029_en.png" alt="" width="450" /></a>
+
+<aside class="note">
+<p class="">Google and Apple are prohibited from attracting ratings and reviews from users by offering rewards, and Google specifically prohibits mentioning rewards.</p>
+
+</aside>
+
+<h4>Game End Popup on Android</h4>
+
+According to the guidelines for Android app development from Google, you should implement to move to the previous state when game-playing user presses <strong>Back</strong> button of the user device. If the user taps the back button while a game is in progress, pause the game and ask whether to continue or quit the game. If no page is left to return, expose the game end popup and follow the user choice. For those who terminate the game, expose a button so-called <strong>More games</strong> to recommend and suggest downloading other games. You can use the features provided by Hive or implement it directly in the game and link to the Hive game.
+
+<a href="http://developers.withhive.com/wp-content/uploads/2019/06/03_about-hive_endpopup_en.png"><img class="alignnone wp-image-24167" src="http://developers.withhive.com/wp-content/uploads/2019/06/03_about-hive_endpopup_en.png" alt="" width="450" /></a>
+
+<h4>Hive User Engagement</h4>
+
+With Hive User Engagement, you can include deep link URLs in mobile messages, push notifications or in-game notices, and let users execute games or reach the specific page in the game. Putting promotion codes in deep links also available for users to get rewards from the in-game gift box by tapping the link.
+This is a service to deal with divers marketing issues. You can generate URLs in Hive Console for receiving coupons, inducing games, or other events.
+
+<a href="http://developers.withhive.com/wp-content/uploads/2018/04/7_about-hive_7_en.png"><img class="alignnone wp-image-18681" src="http://developers.withhive.com/wp-content/uploads/2018/04/7_about-hive_7_en.png" alt="" width="700" /></a>
+
+<h4>Hive User Acquisition</h4>
+
+You can attract new users by having users share their Invite URL or QR Code on their SNS with the Invite Feature offered by Hive. Rewards are given to both the one who invited his or her friend and to the one who was invited when the invited user installs the game and meets certain condition (conditions and rewards can be set up at Hive Console), such as reaching a specific level.
+
+The target of invitation is not limited to Hive users. A unique Invite URL and a QR Code are issued per user to identify the user that invited others.
+
+<a href="http://developers.withhive.com/wp-content/uploads/2018/04/8_about-hive_8_en.png"><img class="alignnone wp-image-18682" src="http://developers.withhive.com/wp-content/uploads/2018/04/8_about-hive_8_en.png" alt="" width="600" /></a>
+If an iOS user participates via the Invite URL, the following notice page will be exposed to prevent loss of matching.
+
+<a href="http://developers.withhive.com/wp-content/uploads/2018/04/9_about-hive_9_en.png"><img class="alignnone wp-image-18683" src="http://developers.withhive.com/wp-content/uploads/2018/04/9_about-hive_9_en.png" alt="" width="300" /></a>
+
+UA should provide users with easy-to-achieve goals and give proper compensation to enhance their interest and engagement.
+
+&nbsp;
+
+<hr />
+
+<h2>Billing</h2>
+
+&nbsp;
+
+<h4>Hive IAP v4</h4>
+
+Hive IAP v4, a payment module, provides receipt verification and checks duplicated payment, the parts of process, to help developers take less time to code and respond quickly to the growing market.
+
+<ul>
+    <li>Develop payment system on Google Play Store, Apple App Store, ONE Store and Hive Lebi Store with a single API.</li>
+    <li>Calculate VAT in accordance with currency and then send the data when game requests item information.</li>
+    <li>Provides Market PID list registered on data system in sales through Hive SDK.</li>
+    <li>Send payment logs of games to Hive Analytics v2 when game client requests receipt verification of games to Hive IAP v4 server.</li>
+    <li>Carry out purchase based on a Market PID.</li>
+    <li>Gather logs in the process of pre-purchase (when tapping purchase), purchase (after purchase), and post purchase (after calling finish) to clarify the current status of purchase as well as verification process.</li>
+    <li>Hive IAP v4 purchases items, verifies receipts, sends logs. Sending item is managed by game server.</li>
+</ul>
+
+<h4>Hive IAP v2</h4>
+
+Hive IAP v2, the payment module, reduces development time by unifying the purchasing process and allows you to quickly respond to changes in the market. This module manages the process such as the receipt validation, duplicate payment check and billing log transfer within Hive platform, and guarantees the item delivery transaction after payment.
+It supports real-time monitoring environment through dashboard, and provides the necessary data to business, development, or management department by collecting payment log consistently.
+
+<h4>Hive Item</h4>
+
+Hive Item is a system for integrating and managing the delivery and retrieval features of game cash and item in games. In Hive item, you can provide game cash or items for in-app purchase, coupon use, rewards for cross-promotion, rewards for event, and other diverse reasons in games.
+
+<h4>Hive Coupon</h4>
+
+It is the feature of coupon issued from Hive Console. Users can receive game cash or items through in-game gift box if they input the promotion code delivered via SMS or email. Apple restrict the coupon service as a policy, so Hive Coupon is only available with Android-base devices. However, Hive delivers deep link URL with promo code, so iOS-base users also receive coupons via the URL.
+
+<h4>Hive Lebi</h4>
+
+In China, Google Play Store is not available, so Android-based users need extra payment system to purchase in games.
+Hive Lebi, a payment service for users in China, can purchase in-game items by charging Lebi, the virtual currency.
+
+<aside class="note">
+<p class="">Chinese players using Lebi with Hive Authentication v4 needs to sign in Hive Membership.</p>
+
+</aside>
+
+&nbsp;
+
+<hr />
+
+<h2>Notification</h2>
+
+Hive Notification supports Google’s FCM, Apple’s APNS and Amazon’s ADM.
+
+<h4>Remote Push Notification</h4>
+
+Remote push refers to sending push notifications to users remotely via push tokens collected in advance. Hive supports both Hive Console and the server API to send push notifications. The form of a push notification includes all the features supported by each push service and it also offers features to send deeplink URLs and custom data within a push.
+
+<h4>Overwrite</h4>
+
+Depending on the market policy, this feature only exposes the latest push when receiving a push from a duplicate code (based on the Hive Console). When registering a push, the registrar can choose whether to use the overwrite feature in the Hive Console. In this case, the old push will be overwritten with a new push if the user hasn’t checked the previous push that used the same code.
+
+<aside class="note">
+<p class="">Filtering (based on the whether or not a user has agreed to receive advertisement notifications) will be applied only for push notifications sent from the Hive Console. Therefore, the push that the game server sends using the Hive push API should be limited to informational notifications.</p>
+
+</aside>
+
+<h4>Local Push Notification</h4>
+
+Local push notification refers to a feature used to send notifications to users from the game client. To implement this feature easily, Hive SDK offers local push registration and removal APIs.
+
+<h4>Time Zone and Summer Time</h4>
+
+The Hive push will be applied with global timezones and daylight savings time.
+
+For example, if you schedule a notification to be sent to U.S. local users at 6pm, there will be a three-hour time difference in receiving push notifications between users in New York City and users in Los Angeles. In contrast, it also offers a feature to send push notifications simultaneously, regardless of the region. In this case, if you set the time according to the designated format within the push message, the time will be converted based on the user’s local time. The daylight savings time will be automatically applied to the server according to the region.
+
+Whether or not to apply the time difference can be set by the registrar when he or she is creating a push campaign in the backoffice.
+
+&nbsp;
+
+<hr />
+
+<h2>Customer Service</h2>
+
+It is the only customer service of Hive game to inquire search FAQ by game. User can access this feature in the game, on Hive mobile, and PC websites. Customer Service is available to guest users, unlike other social features. For more information about this, see the configuration section in the game lobby.
+
+<a href="https://developers.withhive.com/wp-content/uploads/2020/12/customer_service_en.png"><img src="https://developers.withhive.com/wp-content/uploads/2020/12/customer_service_en.png" alt="" width="700" /></a>
+
+&nbsp;
+
+<hr />
+
+<h2>Back Office and Back End Services</h2>
+
+&nbsp;
+
+<h4>Hive Console</h4>
+
+Hive Console is a backoffice where you can control Hive SDK products.
+Try using Hive more conveniently and securely in one backoffice console that encompasses interconnected products.
+
+<h4>Sandbox Environment</h4>
+
+It is a function to minimize the risk possible to be caused when game developers link Hive platform, so you can test the various functions of Hive in the same way as the actual service environment.
+When building Game Clients, numerous functions communicate with sandbox server and are operated by change in settings of Hive SDK.
+
+<h4>Game Management System(GMS)</h4>
+
+GCP Platform Department individually develops and provides the systems required to operate by game.
+API for connection with game servers of GMS must be provided by the game development studio.
+
+<h4>Developers Site</h4>
+
+Hive Developers supports various information to apply the platform with ease and convenience, and SDK to download.
+
+&nbsp;
+
+<hr />

@@ -1,11 +1,16 @@
 ---
 hide:
   - toc
+  - navigation
 ---
 
-# Welcome to MkDocs Test 국문 버전 1.0 Stable
+# Welcome to MkDocs Test 국문 버전
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+
+국문 버전이 아래와 같이 업데이트 되었습니다.
+
+- [kr-2.0](dev/index.md) | March 18, 2024
 
 ## Commands
 

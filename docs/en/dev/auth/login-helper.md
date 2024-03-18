@@ -2,8 +2,8 @@
 * SDK 4.7.0 미만 버전에서는 Helper를 지원하지 않습니다. 기존 로그인 적용 방법은 [로그인·로그아웃하기](../../../authv4-login/)를 참고하세요.
 * AuthV4.Helper에 대한 설명은 [인증](../#v4-helper) 페이지를 참고하세요.
 
-### Login for en-2.0(en-latest)
-latest version as below.
+### Login for en-2.0 (en-stable)
+stable version as below.
 
 인증에서 로그인은 다음의 순서로 구성합니다.
 * 1. [자동 로그인 및 묵시적 로그인](#helper-signin)
