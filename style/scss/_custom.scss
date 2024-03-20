@@ -1,1 +1,19 @@
 // Add custom css
+.mdx-columns {
+
+  // Column
+  ol,
+  ul {
+    columns: 2;
+
+    // [mobile portrait -]: Reset columns on mobile
+    @include break-to-device(mobile portrait) {
+      columns: initial;
+    }
+  }
+
+  // Column item
+  li {
+    break-inside: avoid;
+  }
+}

@@ -16,8 +16,9 @@ theme:
     - content.action.view
     - content.code.annotate
     - content.code.copy
-    # - content.tabs.link
-    - content.tooltips
+    - content.code.select #240319
+    - content.tabs.link #240319
+    - content.tooltips 
     # - header.autohide
     # - navigation.expand
     - navigation.footer
@@ -33,7 +34,7 @@ theme:
     - search.share
     - search.suggest
     - toc.follow
-    # - toc.integrate
+    # - toc.integrate #240319
 
 
 # Plugins
@@ -59,6 +60,9 @@ extra:
       link: /en-1.0/
       lang: en
  
+  annotate:
+    json: [.s2]
+
 # Extensions
 markdown_extensions:
   - abbr
@@ -67,6 +71,9 @@ markdown_extensions:
   - def_list
   - footnotes
   - md_in_html
+  - pymdownx.snippets: #240319
+      auto_append:
+        - includes/abbreviations.md
   - toc:
       permalink: true
   - pymdownx.arithmatex:
@@ -109,6 +116,8 @@ nav:
 
   - SDK Guide: 
     - dev/index.md
+
+    - About Hive: dev/about-hive.md
 
     - 인증:
       - dev/auth/index.md
