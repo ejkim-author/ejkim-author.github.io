@@ -48,16 +48,16 @@ plugins:
 extra:
   version:
     default:
-      - 'kr-1.0'
+      - 'latest'
     provider: mike
 
   alternate:
     - name: Korean
-      link: /kr-1.0/
+      link: /
       lang: ko
 
     - name: English
-      link: /en-1.0/
+      link: /en/
       lang: en
  
   annotate:

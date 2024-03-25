@@ -8,9 +8,11 @@ hide:
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
+## 버전 업데이트 내역
 국문 버전이 아래와 같이 업데이트 되었습니다.
 
-- [kr-2.0](dev/index.md) | March 18, 2024
+- [v2.0](dev/index.md) | March 22, 2024
+- [v1.0](https://ejkim-author.github.io/v1.0/) | March 18, 2024
 
 ## Commands
 

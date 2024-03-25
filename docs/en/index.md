@@ -6,13 +6,9 @@ hide:
 
 # Welcome to MkDocs Test English version
 
-영문 버전이 아래와 같이 업데이트 되었습니다.
+영 문 버전이 아래와 같이 업데이트 되었습니다.
 
-- [en-2.0](dev/index.md)
-
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-
-This guide is the latest version in English.
+- [v2.0](dev/index.md) | March 22, 2024
 
 ## Commands
 

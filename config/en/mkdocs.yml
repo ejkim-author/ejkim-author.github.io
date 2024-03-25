@@ -6,7 +6,7 @@ site_dir: '../../site/en'
 # Repository
 #repo_name: sagudori1/hivedevsite_test
 #repo_url: https://xgit.withhive.com/sagudori1/hivedevsite_test
-#remote_branch: gh-pages
+remote_branch: en-deploy
 
 theme: 
   name: material
@@ -55,16 +55,16 @@ plugins:
 extra:
   version:
     default:
-      - 'v1.0'
+      - 'latest'
     provider: mike
 
   alternate:
     - name: Korean
-      link: /v1.0/
+      link: /
       lang: ko
 
     - name: English
-      link: /v1.0/
+      link: /en/
       lang: en
   
   annotate:
