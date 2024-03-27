@@ -2,27 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://ejkim-author.github.io/en/v1.0/</loc>
-         <lastmod>2024-03-25</lastmod>
+         <lastmod>2024-03-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ejkim-author.github.io/en/v1.0/dev/</loc>
-         <lastmod>2024-03-25</lastmod>
+         <lastmod>2024-03-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ejkim-author.github.io/en/v1.0/dev/auth/</loc>
-         <lastmod>2024-03-25</lastmod>
+         <lastmod>2024-03-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ejkim-author.github.io/en/v1.0/dev/auth/login-helper/</loc>
-         <lastmod>2024-03-25</lastmod>
+         <lastmod>2024-03-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ejkim-author.github.io/en/v1.0/dev/promotion/fullbanners/</loc>
-         <lastmod>2024-03-25</lastmod>
+         <lastmod>2024-03-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
