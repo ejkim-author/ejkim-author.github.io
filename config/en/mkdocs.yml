@@ -55,7 +55,7 @@ plugins:
 extra:
   version:
     default:
-      - 'latest'
+      - 'v1.0'
     provider: mike
 
   alternate:

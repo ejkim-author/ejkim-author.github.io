@@ -5,8 +5,7 @@ hide:
 ---
 
 # Welcome to MkDocs Test English version
-
-영 문 버전이 아래와 같이 업데이트 되었습니다.
+영문 버전이 아래와 같이 업데이트되었습니다.
 
 - [v2.0](dev/index.md) | March 22, 2024
 

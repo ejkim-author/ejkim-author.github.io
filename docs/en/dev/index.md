@@ -1,7 +1,7 @@
 ---
 hide:
   - toc
-title: SDK 2.0 EN
+title: SDK Guide v2.0
 ---
 
-# SDK 2.0 Eng. Guide
+# SDK Guide
